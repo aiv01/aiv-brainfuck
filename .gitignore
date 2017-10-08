@@ -50,3 +50,7 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+*.un~
+brainfuck
+brainfuck_tests
