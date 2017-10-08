@@ -37,3 +37,18 @@ or (for Windows)
 ```sh
 nmake -f Makefile.nmake tests
 ```
+
+## Example: printing CIAO
+
+```
++++++++++++++
+[
+        >
+        +++++
+        <-
+]
+>++.
+++++++.
+--------.
+++++++++++++++.
+```
