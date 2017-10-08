@@ -40,13 +40,13 @@ static int brainfuck_opcode_run(struct brainfuck_vm *vm)
 				vm->ptr++;
 				break;
 			}
-			break;
+			return BF_ERR;
 		case '<':
 			if (vm->ptr > vm->memory) {
 				vm->ptr--;
 				break;
 			}
-			break;
+			return BF_ERR;
 		case '+':
 			(*vm->ptr)++;
 			break;

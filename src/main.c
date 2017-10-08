@@ -15,6 +15,8 @@ int main(int argc, char *argv[])
 		return -1;
 	}
 
+	fprintf(stdout, "AIV brainfuck VM initialized with %u bytes of memory\n", vm.memory_size);
+
 	if (argc > 2) {
 		FILE *source = fopen(argv[2], "r");
 		if (!source) {
