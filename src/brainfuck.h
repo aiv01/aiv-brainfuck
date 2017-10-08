@@ -15,6 +15,8 @@ struct brainfuck_vm {
 	char *ptr;
 	void (*print_hook)(struct brainfuck_vm *);
 	char (*input_hook)(struct brainfuck_vm *);
+	int (*pre_hook)(struct brainfuck_vm *);
+	int (*post_hook)(struct brainfuck_vm *);
 };
 
 int brainfuck_init(struct brainfuck_vm *, unsigned int);

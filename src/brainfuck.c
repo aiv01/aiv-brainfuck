@@ -130,8 +130,16 @@ int brainfuck_run(struct brainfuck_vm *vm, char *code, unsigned int code_size, u
 	vm->pc = 0;
 
 	for(;;) {
+		if (vm->pre_hook) {
+			if (vm->pre_hook(vm))
+				break;
+		}
 		int ret = brainfuck_opcode_run(vm);
 		if (ret >= 0) {
+			if (vm->post_hook) {
+				if (vm->post_hook(vm))
+					break;
+			}
 			if (ret >= vm->code_size) {
 				// end of program
 				return 0;
