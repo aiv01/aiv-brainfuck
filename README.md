@@ -21,7 +21,7 @@ make
 On Windows systems (from the Visual Studio console)
 
 ```sh
-make -f Makefile.nmake
+nmake -f Makefile.nmake
 ```
 
 ## Tests
@@ -35,5 +35,5 @@ make tests
 or (for Windows)
 
 ```sh
-make -f Makefile.nmake tests
+nmake -f Makefile.nmake tests
 ```
