@@ -46,19 +46,16 @@ int main(int argc, char *argv[])
 	} else {
 		unsigned int line_number = 0;
 		for (;;) {
-			char *line = NULL;
-			size_t len = 0;
-			ssize_t rlen = getline(&line, &len, stdin);
-			if (rlen < 0)
+			char line_buf[4096];
+			char *line = fgets(line_buf, 4096, stdin);
+			if (!line)
 				break;
 			unsigned int opcode_err_pos = 0;
-			ret = brainfuck_run(&vm, line, rlen, &opcode_err_pos);
+			ret = brainfuck_run(&vm, line, strlen(line), &opcode_err_pos);
 			if (ret < 0) {
 				fprintf(stderr, "error while running opcode '%c' at position %u line: %u \n", line[opcode_err_pos], opcode_err_pos, line_number);
 				break;
 			}
-			//free the memory allocated by getline
-			free(line);
 			line_number++;
 		}
 	}
