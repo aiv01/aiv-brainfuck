@@ -46,7 +46,7 @@ The following functions are exposed:
 
 ```c
 int brainfuck_init(struct brainfuck_vm *, unsigned int);
-``
+```
 
 must be called before working with a vm, initialize a new virtualmachine with specified memory size. Returns an int != 0 on error.
 
