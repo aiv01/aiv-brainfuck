@@ -40,6 +40,24 @@ or (for Windows)
 nmake -f Makefile.nmake tests
 ```
 
+## Commands
+
+`+` increment the value of the pointer
+
+`-` decrement the value of the pointer
+
+`>` move the pointer right
+
+`<` move the pointer left
+
+`[` start of a block, enter if the value of the pointer is non zero
+
+`]` end of a block, exit if the value of the pointer is zero, otherwise back to the start of the block
+
+`.` output (can be hooked) the current value of the pointer
+
+`,` input (can be hooked) to the current pointer
+
 ## Embedding API
 
 the brainfuck_vm structure represents a brainfuck virtual machine.
@@ -73,6 +91,21 @@ executes a string of opcodes with the specified size. The last argument (if not 
 ## Input and Output
 
 The VM can be configured for custom input and output hooks. If no hooks are defined, the '.' command will call fputf() while ',' will call fgetc().
+
+## Hooks
+
+the brainfuck_vm exposes the following hooks
+
+```c
+// called by the dot command
+void (*print_hook)(struct brainfuck_vm *);
+// called by the comma command
+char (*input_hook)(struct brainfuck_vm *);
+// called before each opcode (non zero return value triggers an error)
+int (*pre_hook)(struct brainfuck_vm *);
+// called after each opcode (non zero return value triggers an error)
+int (*post_hook)(struct brainfuck_vm *);
+```
 
 ## Examples
 
