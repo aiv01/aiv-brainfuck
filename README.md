@@ -12,6 +12,8 @@ wait for commands in the stdin
 
 ## Bulding
 
+LLVM/clang, gcc, cl.exe are supported.
+
 On POSIX systems:
 
 ```sh
