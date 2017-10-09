@@ -76,7 +76,7 @@ The VM can be configured for custom input and output hooks. If no hooks are defi
 
 ## Examples
 
-### printing CIAO
+### printing CIAO [without newline]
 
 ```bf
 +++++++++++++
@@ -91,7 +91,7 @@ The VM can be configured for custom input and output hooks. If no hooks are defi
 ++++++++++++++.
 ```
 
-### Waiting for user input and print it inverted
+### Waiting for user input and print it inverted [with newline]
 
 ```bf
 >+>+
