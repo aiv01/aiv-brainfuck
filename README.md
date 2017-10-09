@@ -74,9 +74,11 @@ executes a string of opcodes with the specified size. The last argument (if not 
 
 The VM can be configured for custom input and output hooks. If no hooks are defined, the '.' command will call fputf() while ',' will call fgetc().
 
-## Example: printing CIAO
+## Examples
 
-```
+### printing CIAO
+
+```bf
 +++++++++++++
 [
         >
@@ -87,4 +89,34 @@ The VM can be configured for custom input and output hooks. If no hooks are defi
 ++++++.
 --------.
 ++++++++++++++.
+```
+
+### Waiting for user input and print it inverted
+
+```bf
+>+>+
+[
+        <
+        [
+                ,>[-]>[-]>[-]<<<
+                [
+                        >+>+>+
+                        <<<-
+                ]
+                >----------
+                [
+                        >
+                        [
+                                <<+
+                                >>-
+                        ]
+                ]
+                >----------
+                [<]
+                <
+        ]
+        <<[.<]++++++++++.----------
+        >+>+
+]
+
 ```
