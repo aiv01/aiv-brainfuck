@@ -107,6 +107,24 @@ int (*pre_hook)(struct brainfuck_vm *);
 int (*post_hook)(struct brainfuck_vm *);
 ```
 
+## SDL Custom VM
+
+As a proof of concept, an SDL based vm is included. You need to pass the width and the height of a window to the command line options.
+
+The VM memory will be composed by the classic general-purpose brainfuck memory, a 8 bytes IVT (Interrupt Vector Table) and a width * height * 4 sequence of bytes representing the RGBA pixels. Yes you can write colors to the window using brainfuck :)
+
+```sh
+./brainfuck_sdl[.exe] 10 300 100 [file]
+```
+
+will generate a brainfuck vm with 10 bytes of general purpose memory, 8 bytes of IVT and 300 * 100 * 4 bytes of RGBA pixels.
+
+The IVT table is a special memory area triggering specific behaviours (like a true interrupt table).
+
+Currently 3 fields are defined:
+
+* IVT_REDRAW (address 0 of the IVT) when set to 1, the content of the RGBA pixel are will be transferred to the window
+
 ## Examples
 
 ### printing CIAO [without newline]
