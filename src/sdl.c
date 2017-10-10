@@ -1,6 +1,10 @@
 #include "brainfuck.h"
 
+#ifdef DIRECT_SDL_INCLUDE
+#include <SDL.h>
+#else
 #include <SDL2/SDL.h>
+#endif
 
 static struct brainfuck_sdl_vm {
 	struct brainfuck_vm vm;
@@ -44,11 +48,6 @@ static int post_hook(struct brainfuck_vm *vm)
 		}
 		memcpy(pixels, bitmap, (sdl_vm->window_width * 4 * sdl_vm->window_height));
                 SDL_UnlockTexture(sdl_vm->texture);
-
-		for(int i =0;i<28;i++) {
-			printf("[%u] ", bitmap[i]);
-		}
-		printf("\n");
 
                 SDL_RenderClear(sdl_vm->renderer);
                 SDL_RenderCopy(sdl_vm->renderer, sdl_vm->texture, NULL, NULL);

@@ -1,10 +1,9 @@
-brainfuck: src/main.c src/brainfuck.c src/brainfuck.h
-	$(CC) /c /Fo:src\brainfuck.obj src/brainfuck.c
-	$(CC) /c /Fo:src\main.obj src/main.c 
-	$(CC) src\brainfuck.obj src\main.obj /Fo:brainfuck.exe
+all:
+	$(CC) src\brainfuck.c src\main.c /Fe:brainfuck.exe
 
-all: brainfuck
-
-tests: src/brainfuck.c src/brainfuck.h tests/tests.c
-	$(CC) /Fe:brainfuck_tests.exe /Isrc tests\tests.c src\brainfuck.obj
+tests: brainfuck_tests
+	$(CC) /Fe:brainfuck_tests.exe /Isrc tests\tests.c src\brainfuck.c
 	brainfuck_tests.exe
+
+sdl:
+	$(CC) src\brainfuck.c src\sdl.c SDL2.lib SDL2main.lib /DDIRECT_SDL_INCLUDE /Fe:brainfuck_sdl.exe /link /SUBSYSTEM:CONSOLE
