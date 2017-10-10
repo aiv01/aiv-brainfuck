@@ -131,6 +131,18 @@ Currently 3 fields are defined:
 
 * IVT_SLEEP_FIELD (address 2 of the IVT), see IVT_SLEEP, note that the field is interpreted as unsigned char (0-255)
 
+For building brainfuck_sdl on POSIX systems (ensure to have SDL2 development headers installed):
+
+```sh
+make sdl
+```
+
+on windows you need to specify the path of the SDL2 installation:
+
+```sh
+nmake -f Makefile.nmake sdl CL="/ID:\AIV\SDL2-2.0.6\include /link /LIBPATH:D:\AIV\SDL2-2.0.6\lib\x64"
+```
+
 ## Examples
 
 ### printing CIAO [without newline]
