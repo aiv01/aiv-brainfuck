@@ -1,10 +1,10 @@
-brainfuck: src/main.c src/brainfuck.c src/brainfuck.h tests/tests.c
+brainfuck: src/main.c src/brainfuck.c src/brainfuck.h
 	$(CC) /c /Fo:src\brainfuck.obj src/brainfuck.c
 	$(CC) /c /Fo:src\main.obj src/main.c 
 	$(CC) src\brainfuck.obj src\main.obj /Fo:brainfuck.exe
 
 all: brainfuck
 
-tests: brainfuck
+tests: src/brainfuck.c src/brainfuck.h tests/tests.c
 	$(CC) /Fe:brainfuck_tests.exe /Isrc tests\tests.c src\brainfuck.obj
 	brainfuck_tests.exe
