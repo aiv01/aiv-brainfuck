@@ -1,7 +1,7 @@
 all:
 	$(CC) src\brainfuck.c src\main.c /Fe:brainfuck.exe
 
-tests: brainfuck_tests
+test:
 	$(CC) /Fe:brainfuck_tests.exe /Isrc tests\tests.c src\brainfuck.c
 	brainfuck_tests.exe
 
