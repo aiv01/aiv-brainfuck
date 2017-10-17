@@ -1,7 +1,7 @@
 all:
 	$(CC) -o brainfuck src/brainfuck.c src/main.c
 
-tests: brainfuck_tests
+test: brainfuck_tests
 	$(CC) -o brainfuck_tests -Isrc tests/tests.c src/brainfuck.c
 	./brainfuck_tests
 
