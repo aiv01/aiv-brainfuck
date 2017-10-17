@@ -33,7 +33,7 @@ nmake -f Makefile.nmake
 To run the unit tests, execute the 'tests' make target:
 
 ```sh
-make tests
+make test
 ```
 
 or (for Windows)
