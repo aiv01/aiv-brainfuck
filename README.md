@@ -39,7 +39,7 @@ make tests
 or (for Windows)
 
 ```sh
-nmake -f Makefile.nmake tests
+nmake -f Makefile.nmake test
 ```
 
 ## Commands
